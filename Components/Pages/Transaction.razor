@@ -1,0 +1,269 @@
+﻿@page "/transaction"
+@using coursework.Models
+@inject TransactionService TransactionService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<section class="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8">
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-teal-500">Add New Transaction</h1>
+            <p class="text-gray-300 text-md mt-2">Enter the details below to save a new transaction.</p>
+        </div>
+
+        <!-- Form Container -->
+        <div class="border rounded-lg bg-gray-100 p-6">
+            <form @onsubmit="OnSaveTransaction">
+                <!-- Form Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Amount -->
+                    <div>
+                        <label class="block text-sm font-medium text-teal-600 mb-2">Amount</label>
+                        <input type="number" class="form-input"
+                               placeholder="Enter amount" @bind="newTransactionAmount" required min="0" step="any" />
+                    </div>
+
+                    <!-- Transaction Type -->
+                    <div>
+                        <label class="block text-sm font-medium text-teal-600 mb-2">Transaction Type</label>
+                        <select class="form-select" @bind="newTransactionType" required>
+                            <option disabled value="">Select Transaction Type</option>
+                            <option value="Credit">Credit</option>
+                            <option value="Debit">Debit</option>
+                        </select>
+                    </div>
+
+                    <!-- Source -->
+                    <div>
+                        <label class="block text-sm font-medium text-teal-600 mb-2">Source</label>
+                        <select class="form-select" @bind="newTransactionSource">
+                            <option disabled value="">Select Source</option>
+                            <option value="bank">Bank</option>
+                            <option value="cash">Cash</option>
+                            <option value="online">Online</option>
+                            <option value="bonus">Bonus</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Tags -->
+                    <div>
+                        <label class="block text-sm font-medium text-teal-600 mb-2">Tags</label>
+                        <select class="form-select" @bind="newTransactionTags" required>
+                            <option disabled value="">Select Tags</option>
+                            <option value="yearly">Yearly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="food">Food</option>
+                            <option value="drinks">Drinks</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="mt-6">
+                    <label class="block text-sm font-medium text-teal-600 mb-2">Notes</label>
+                    <textarea class="form-textarea" rows="3" placeholder="Add any notes" @bind="newTransactionNotes"></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex justify-between items-center mt-8 gap-4">
+                    <button type="submit" class="save-btn">
+                        Save Transaction
+                    </button>
+                    <button type="button" class="cancel-btn" @onclick="OnCancel">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Success Message -->
+        @if (!string.IsNullOrEmpty(Message))
+        {
+            <div class="mt-6 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-sm" role="alert">
+                <p>@Message</p>
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+    private decimal newTransactionAmount = 0;
+    private string newTransactionType = "";
+    private string newTransactionTags = "";
+    private string newTransactionSource = "";
+    private string newTransactionNotes = "";
+    private string Message = "";
+    private List<TransactionModel> Transactions = new();
+
+    protected override void OnInitialized()
+    {
+        var appData = TransactionService.LoadAppData();
+        Transactions = appData.Transactions ?? new List<TransactionModel>();
+    }
+
+    private async Task OnSaveTransaction()
+    {
+        var userId = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "userId");
+        if (string.IsNullOrEmpty(userId))
+        {
+            Message = "User ID not found. Please log in.";
+            return;
+        }
+
+        int parsedUserId = int.Parse(userId);
+
+        if (newTransactionType == "Debit" && !TransactionService.CheckSufficientBalance(parsedUserId, newTransactionAmount))
+        {
+            Message = "Insufficient balance for this transaction.";
+            return;
+        }
+
+        var newTransactionId = Transactions.Any() ? Transactions.Max(t => t.Id) + 1 : 1;
+
+        var newTransaction = new TransactionModel
+            {
+                Id = newTransactionId,
+                UserId = parsedUserId,
+                Amount = newTransactionAmount,
+                Type = Enum.TryParse<TransactionModel.TransactionType>(newTransactionType, out var type) ? type : TransactionModel.TransactionType.Credit,
+                Tags = newTransactionTags.Split(',').Select(tag => tag.Trim()).ToList(),
+                Source = newTransactionSource.Split(',').Select(source => source.Trim()).ToList(),
+                Notes = newTransactionNotes,
+                Date = DateTime.Now
+            };
+
+        Transactions.Add(newTransaction);
+        TransactionService.SaveTransactions(Transactions);
+
+        Message = "Transaction saved successfully!";
+    }
+
+    private void OnCancel()
+    {
+        // Reload the current page
+        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+    }
+}
+
+<style>
+    /* General Layout Styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: white;
+    }
+
+    section {
+        background-color: white;
+        padding: 3rem 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Form Container Styling */
+    .w-full {
+        width: 100%;
+        max-width: 450px;
+        background: linear-gradient(135deg, #0066cc, #004085, #0066cc);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-4xl {
+        font-size: 2.25rem;
+        font-weight: 600;
+        color: #38b2ac;
+    }
+
+    .text-md {
+        font-size: 1rem;
+        color: white;
+    }
+
+    /* Form Fields Styling */
+    .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 2px solid #2c7a7b;
+        background: #e6fffa;
+        color: #1a5f56;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        outline: none;
+        transition: none;
+    }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: #38b2ac;
+            box-shadow: 0 0 10px rgba(72, 184, 172, 0.6);
+        }
+
+    /* Button Styling */
+    .w-1/2 {
+        width: 48%;
+    }
+
+    .bg-gradient-to-r {
+        background: linear-gradient(to right, #38b2ac, #0d9488);
+    }
+
+    .text-white {
+        color: white;
+    }
+
+    .save-btn {
+        width: 48%;
+        padding: 14px;
+        border-radius: 10px;
+        font-weight: bold;
+        background: linear-gradient(to right, #38b2ac, #0d9488);
+        color: white;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+        .save-btn:hover {
+            background: linear-gradient(to right, #0d9488, #38b2ac);
+            transform: scale(1.05);
+        }
+
+    .cancel-btn {
+        width: 48%;
+        padding: 14px;
+        border-radius: 10px;
+        font-weight: bold;
+        background: linear-gradient(to right, #e53e3e, #c53030);
+        color: white;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+        .cancel-btn:hover {
+            background: linear-gradient(to right, #c53030, #e53e3e);
+            transform: scale(1.05);
+        }
+
+    /* Success/Error Message */
+    .text-teal-400 {
+        color: #38b2ac;
+    }
+
+    .font-medium {
+        font-weight: 500;
+    }
+
+    .grid {
+        gap: 1.5rem;
+    }
+
+    .mt-6 {
+        margin-top: 2rem;
+    }
+
+    .mb-10 {
+        margin-bottom: 2.5rem;
+    }
+</style>

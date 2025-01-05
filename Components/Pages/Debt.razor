@@ -1,0 +1,246 @@
+﻿@page "/debt"
+@using coursework.Models
+@inject DebtService DebtService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<section class="min-h-screen bg-gradient-to-r from-teal-600 via-teal-500 to-teal-400 flex items-center justify-center">
+    <div class="w-full max-w-lg bg-white rounded-xl shadow-xl p-6 transform transition-all hover:scale-105 ease-in-out duration-300">
+        <div class="text-center mb-6">
+            <h2 class="text-3xl font-semibold text-white">
+                Add New Debt
+            </h2>
+            <p class="text-md text-white">Fill out the details below for the new debt.</p>
+        </div>
+
+        <form @onsubmit="OnSaveDebt">
+            <!-- Amount Input -->
+            <div class="mb-4">
+                <input type="number" class="form-input w-full p-4 rounded-lg border-2 border-teal-500 text-gray-900 bg-teal-100 placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
+                       placeholder="Total Debt Amount" @bind="DebtAmount" required min="0" step="any" />
+            </div>
+
+            <!-- Paid Amount Input -->
+            <div class="mb-4">
+                <input type="number" class="form-input w-full p-4 rounded-lg border-2 border-teal-500 text-gray-900 bg-teal-100 placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
+                       placeholder="Paid Amount" @bind="PaidAmount" min="0" step="any" />
+            </div>
+
+            <!-- Source Dropdown -->
+            <div class="mb-4">
+                <select class="form-select w-full p-4 rounded-lg border-2 border-teal-500 text-gray-900 bg-teal-100 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
+                        @bind="DebtSource">
+                    <option disabled value="">Select Source</option>
+                    <option value="bank">Bank</option>
+                    <option value="cash">Cash</option>
+                    <option value="online">Online</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Due Date Input -->
+            <div class="mb-4">
+                <input type="date" class="form-input w-full p-4 rounded-lg border-2 border-teal-500 text-gray-900 bg-teal-100 placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
+                       @bind="DueDate" required />
+            </div>
+
+            <!-- Notes Input -->
+            <div class="mb-4">
+                <textarea class="form-textarea w-full p-4 rounded-lg border-2 border-teal-500 text-gray-900 bg-teal-100 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
+                          rows="3" placeholder="Notes" @bind="DebtNotes"></textarea>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-between items-center space-x-4 mt-6">
+                <button type="submit" class="save-btn">
+                    Save Debt
+                </button>
+                <button type="button" class="cancel-btn" @onclick="OnCancel">
+                    Cancel
+                </button>
+            </div>
+        </form>
+
+        <!-- Success/Error Message -->
+        @if (!string.IsNullOrEmpty(Message))
+        {
+            <p class="text-center text-lg mt-4 text-teal-400 font-medium">@Message</p>
+        }
+    </div>
+</section>
+
+@code {
+    private decimal DebtAmount = 0;
+    private decimal PaidAmount = 0;
+    private DateTime DueDate = DateTime.Now; // Ensure DueDate is correctly initialized
+    private string DebtSource = "";
+    private string DebtNotes = "";
+    private string Message = "";
+
+    private List<DebtModel> Debts = new();
+
+    protected override void OnInitialized()
+    {
+        // Load existing debts from the DebtService
+        Debts = DebtService.GetAllDebts();
+    }
+
+    private async Task OnSaveDebt()
+    {
+        // Retrieve the userId from localStorage
+        var userIdString = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "userId");
+
+        if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out var userId))
+        {
+            Message = "Please log in. User ID not found.";
+            return;
+        }
+
+        // Generate a unique Debt ID (Same logic as transaction ID)
+        var newDebtId = Debts.Any() ? Debts.Max(d => d.Id) + 1 : 1;
+
+        // Save the debt only if the form is valid
+        if (DebtAmount <= 0 || string.IsNullOrWhiteSpace(DebtSource))
+        {
+            Message = "Amount required.";
+            return;
+        }
+
+        // Create a new DebtModel
+        var newDebt = new DebtModel
+            {
+                Id = newDebtId, // Assign the new unique Debt ID
+                UserId = userId, // Associate the debt with the user
+                Amount = DebtAmount,
+                PaidAmount = PaidAmount,
+                Source = DebtSource,
+                IsCleared = false,  // Initially, the debt is not cleared
+                Notes = DebtNotes,
+                Date = DateTime.Now, // Current date as the creation date
+            };
+
+        // Save the new debt using DebtService
+        Debts.Add(newDebt); // Add the new debt to the local list
+        DebtService.SaveDebts(Debts); // Save the updated list of debts
+
+        Message = "Debt saved successfully.";
+
+        // Optionally reset the form or redirect
+        DebtAmount = 0;
+        PaidAmount = 0;
+        DebtSource = "";
+        DebtNotes = "";
+    }
+
+    private void OnCancel()
+    {
+        // Reload the current page
+        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
+    }
+}
+
+<style>
+    /* General Layout Styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: white; /* Set body background to white */
+    }
+
+    section {
+        background-color: white; /* Background */
+        padding: 3rem 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Form Container Styling */
+    .w-full {
+        width: 100%;
+        max-width: 450px;
+        background: linear-gradient(135deg, #0066cc, #004085, #0066cc); /* Filling Box */
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Added shadow back */
+    }
+
+    .text-3xl {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: white;
+    }
+
+    .text-md {
+        font-size: 1rem;
+        color: white;
+    }
+
+    /* Form Fields Styling */
+    .form-input, .form-select, .form-textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 2px solid #2c7a7b;
+        background: #e6fffa;
+        color: #1a5f56;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        outline: none;
+        transition: none;
+    }
+
+        /* Focus State */
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: #38b2ac; /* Focus border color */
+            box-shadow: 0 0 10px rgba(72, 184, 172, 0.6);
+        }
+
+    /* Action Buttons Styling */
+
+    /* Save Button */
+    .save-btn {
+        width: 48%;
+        padding: 14px;
+        border-radius: 10px;
+        font-weight: bold;
+        background: linear-gradient(to right, #38b2ac, #0d9488); /* Gradient color for the Save button */
+        color: white; /* Text color */
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+        .save-btn:hover {
+            background: linear-gradient(to right, #0d9488, #38b2ac); /* Hover effect with inverted gradient */
+            transform: scale(1.05); /* Hover scale effect */
+        }
+
+    /* Cancel Button */
+    .cancel-btn {
+        width: 48%;
+        padding: 14px;
+        border-radius: 10px;
+        font-weight: bold;
+        background: linear-gradient(to right, #e53e3e, #c53030); /* Gradient background for the Cancel button */
+        color: white; /* Text color */
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+        .cancel-btn:hover {
+            background: linear-gradient(to right, #c53030, #e53e3e); /* Hover effect with inverted gradient */
+            transform: scale(1.05); /* Hover scale effect */
+        }
+
+    /* Success/Error Message */
+    p {
+        font-size: 1.125rem;
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .text-teal-400 {
+        color: #38b2ac;
+    }
+
+    .font-medium {
+        font-weight: 500;
+    }
+</style>

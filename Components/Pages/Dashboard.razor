@@ -1,0 +1,272 @@
+﻿@page "/dashboard"
+@using coursework.Models
+@inject NavigationManager NavigationManager
+@inject TransactionService TransactionService
+@inject IJSRuntime JSRuntime
+
+<div class="main-content container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex align-items-center">
+            <input @bind="SearchTerm"
+                   @oninput="OnSearchInput"
+                   type="text"
+                   class="form-control me-3 search-input"
+                   placeholder="Search by type, tags, or date..." />
+
+            <div id="currentDate" class="date-display text-muted">
+                @DateTime.Now.ToString("MMMM dd, yyyy")
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center">
+            <button @onclick="Logout" class="btn logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <!-- Date Range Filter -->
+    <div class="row mb-3">
+        <div class="col-12">
+            <h5>Filter by Date Range</h5>
+            <div class="input-group">
+                <input type="date" class="form-control" @bind="StartDate" />
+                <input type="date" class="form-control" @bind="EndDate" />
+                <button @onclick="FilterByDate" class="btn btn-primary">Apply Date Filter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card summary-card bg-primary text-white shadow">
+                <div class="card-body text-center">
+                    <h6>Total Wealth</h6>
+                    <p class="display-6">@TotalWealth</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card summary-card bg-info text-white shadow">
+                <div class="card-body text-center">
+                    <h6>Total Outflows</h6>
+                    <p class="display-6">@TotalOutflows</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card summary-card bg-warning text-dark shadow">
+                <div class="card-body text-center">
+                    <h6>Net Balance</h6>
+                    <p class="display-6">@TotalWealth</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtered Transactions -->
+    <div class="mt-5">
+        <h3>Filtered Transactions</h3>
+        <ul class="transaction-list">
+            @if (FilteredItems?.Any() ?? false)
+            {
+                @foreach (var transaction in FilteredItems)
+                {
+                    <li class="transaction-item">
+                        <span>
+                            @transaction.Date - @transaction.Type -
+                            @string.Join(", ", transaction.Tags ?? new List<string>()) -
+                            @transaction.Amount
+                        </span>
+                    </li>
+                }
+            }
+            else
+            {
+                <p>No transactions found matching the criteria.</p>
+            }
+        </ul>
+    </div>
+</div>
+
+@code {
+    private decimal TotalEarnings = 0;
+    private decimal TotalOutflows = 0;
+    private decimal TotalWealth = 0;
+    private decimal HighestIncome = 0;
+    private decimal LowestIncome = 0;
+    private decimal HighestExpense = 0;
+    private decimal LowestExpense = 0;
+    private string SearchTerm = string.Empty;
+    private DateTime StartDate = DateTime.Now.AddMonths(-1); // Default to last month
+    private DateTime EndDate = DateTime.Now;
+    private List<TransactionModel> FilteredItems = new();
+    private CancellationTokenSource _cancellationTokenSource = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var userId = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "userId");
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                NavigationManager.NavigateTo("/login");
+                return;
+            }
+
+            var id = int.Parse(userId);
+
+            // Fetch total earnings and outflows
+            TotalEarnings = TransactionService.CalculateTotalIncome(id);
+            TotalOutflows = TransactionService.CalculateTotalExpenses(id);
+            TotalWealth = TotalEarnings - TotalOutflows;
+
+            // Load all transactions initially
+            FilteredItems = TransactionService.GetUserTransactions(id);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error initializing dashboard: {ex.Message}");
+        }
+    }
+
+    private async Task OnSearchInput()
+    {
+        _cancellationTokenSource.Cancel();
+        _cancellationTokenSource = new CancellationTokenSource();
+        await Task.Delay(500);
+
+        if (!_cancellationTokenSource.Token.IsCancellationRequested)
+        {
+            FilterItems();
+        }
+    }
+
+    private void FilterItems()
+    {
+        var userId = int.Parse(JSRuntime.InvokeAsync<string>("localStorage.getItem", "userId").Result);
+
+        FilteredItems = TransactionService
+            .GetUserTransactions(userId)
+            .Where(t => (string.IsNullOrEmpty(SearchTerm) ||
+                t.Type.ToString().Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+                (t.Tags != null && t.Tags.Any(tag => tag.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))) ||
+                t.Date.ToString("yyyy-MM-dd").Contains(SearchTerm)))
+            .ToList();
+
+        StateHasChanged();
+    }
+
+    private void FilterByDate()
+    {
+        var userId = int.Parse(JSRuntime.InvokeAsync<string>("localStorage.getItem", "userId").Result);
+
+        FilteredItems = TransactionService
+            .GetUserTransactions(userId)
+            .Where(t => t.Date >= StartDate && t.Date <= EndDate)
+            .ToList();
+
+        StateHasChanged();
+    }
+
+    private void Logout()
+    {
+        JSRuntime.InvokeVoidAsync("localStorage.removeItem", "userId");
+        NavigationManager.NavigateTo("/login");
+    }
+}
+
+<style>
+    /* Main page styling */
+    .main-content {
+        background-color: #f4f7fc;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .search-input {
+        width: 350px;
+        padding: 10px;
+        border-radius: 12px;
+        background-color: white;
+        color: white;
+        border: 1px solid #34567b;
+    }
+
+        .search-input:focus {
+            border-color: #6c7ea8;
+            box-shadow: 0 0 8px rgba(108, 126, 168, 0.6);
+        }
+
+    .date-display {
+        font-size: 14px;
+    }
+
+    /* Logout button */
+    .logout-btn {
+        background-color: #ff6f61;
+        color: white;
+        border-radius: 10px;
+        padding: 8px 20px;
+        font-weight: bold;
+    }
+
+        .logout-btn:hover {
+            background-color: #e54b3e;
+        }
+
+    /* Summary Cards */
+    .summary-card {
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+        .summary-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+    .card-primary {
+        background-color: #007bff;
+    }
+
+    .card-info {
+        background-color: #17a2b8;
+    }
+
+    .card-warning {
+        background-color: #007bff;
+        color: black;
+    }
+
+    /* Transaction list */
+    .transaction-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .transaction-item {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 12px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s;
+    }
+
+        .transaction-item:hover {
+            background-color: #f0f8ff;
+        }
+
+    /* Date Range Filter */
+    .input-group {
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+
+        .input-group input {
+            margin-right: 10px;
+        }
+</style>

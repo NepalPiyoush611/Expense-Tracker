@@ -1,0 +1,182 @@
+﻿@page "/register"
+@using coursework.Components.Layout
+@layout FirstLayout
+@using coursework.Models
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+
+<section class="register-container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="register-card d-flex shadow-lg rounded-4 overflow-hidden">
+        <!-- Left Section -->
+        <div class="register-left d-flex flex-column justify-content-center align-items-center text-white">
+            <h1 class="mb-4">Welcome to eWallet</h1>
+            <p class="mb-4">Manage your finances efficiently, anytime, anywhere.</p>
+            <p class="mt-auto">Already have an account?</p>
+            <a href="/login" class="btn btn-outline-light">Log In</a>
+        </div>
+
+        <!-- Right Section -->
+        <div class="register-right p-5">
+            <h3 class="text-primary mb-4 text-center">Create Your Account</h3>
+            <form @onsubmit="OnRegister">
+                <div class="mb-3">
+                    <label for="username" class="form-label text-primary">Username</label>
+                    <input id="username" type="text" class="form-control" placeholder="Enter your username" @bind="RegisterUsername" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label text-primary">Email</label>
+                    <input id="email" type="email" class="form-control" placeholder="Enter your email" @bind="RegisterEmail" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label text-primary">Password</label>
+                    <input id="password" type="password" class="form-control" placeholder="Enter your password" @bind="RegisterPassword" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-3">Sign Up</button>
+            </form>
+
+            <!-- Error or Success Message -->
+            @if (!string.IsNullOrEmpty(Message))
+            {
+                <div class="alert mt-3 @((Message.Contains("Successfully")) ? "alert-success" : "alert-danger")" role="alert">
+                    @Message
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Container */
+    .register-container {
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0 15px;
+    }
+
+    /* Register Card */
+    .register-card {
+        max-width: 950px;
+        width: 100%;
+        display: flex;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Left Section */
+    .register-left {
+        background: rgba(255, 255, 255, 0.1);
+        flex: 1;
+        padding: 50px;
+        text-align: center;
+    }
+
+        .register-left h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .register-left p {
+            font-size: 1.2rem;
+        }
+
+    .btn-outline-light {
+        border: 2px solid white;
+        border-radius: 50px;
+        color: white;
+        padding: 10px 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+        .btn-outline-light:hover {
+            background-color: white;
+            color: #0072ff;
+        }
+
+    /* Right Section */
+    .register-right {
+        background-color: white;
+        flex: 1;
+        padding: 50px;
+    }
+
+        .register-right h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #0072ff;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056cc;
+        }
+
+    .alert {
+        border-radius: 10px;
+    }
+</style>
+
+@code {
+    private string RegisterUsername = "";
+    private string RegisterEmail = "";
+    private string RegisterPassword = "";
+    private string Message = "";
+    private List<Usermodel> Users = new();
+
+    protected override void OnInitialized()
+    {
+        Users = UserService.LoadUsers();
+    }
+
+    private async Task OnRegister()
+    {
+        if (string.IsNullOrWhiteSpace(RegisterUsername) || string.IsNullOrWhiteSpace(RegisterEmail) || string.IsNullOrWhiteSpace(RegisterPassword))
+        {
+            Message = "All fields are required.";
+            return;
+        }
+
+        if (Users.Any(u => u.Email == RegisterEmail))
+        {
+            Message = "Email already exists.";
+            return;
+        }
+
+        // Generate a unique ID for the new user
+        var newUserId = Users.Any() ? Users.Max(u => u.Id) + 1 : 1;
+
+        var newUser = new Usermodel
+            {
+                Id = newUserId,
+                Username = RegisterUsername,
+                Email = RegisterEmail,
+                Password = UserService.HashPassword(RegisterPassword)
+            };
+
+        Users.Add(newUser);
+        UserService.SaveUsers(Users);
+        Message = "Successfully Registered!";
+        await Task.Delay(2000);
+        NavigationManager.NavigateTo("/login");
+    }
+}

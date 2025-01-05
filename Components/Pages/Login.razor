@@ -1,0 +1,174 @@
+﻿@page "/login"
+@using coursework.Components.Layout
+@layout FirstLayout
+@using coursework.Models
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<section class="login-container d-flex align-items-center min-vh-100">
+    <div class="login-card d-flex shadow-lg rounded-3 overflow-hidden">
+        <!-- Left Section -->
+        <div class="login-left d-flex flex-column justify-content-center align-items-center text-white">
+            <h2 class="mb-4">Hey There!</h2>
+            <p class="mb-4">Welcome Back. You are just one step away from managing your finances.</p>
+            <p class="mt-auto">Don't have an account?</p>
+            <a href="/register" class="btn btn-outline-light">Sign Up</a>
+        </div>
+
+        <!-- Right Section -->
+        <div class="login-right p-5">
+            <h3 class="text-primary mb-4">SIGN IN</h3>
+            <form @onsubmit="OnLogin">
+                <div class="mb-3">
+                    <label for="username" class="form-label text-primary">Username</label>
+                    <input id="username" type="text" class="form-control" placeholder="Enter your username" @bind="LoginUsername" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label text-primary">Password</label>
+                    <input id="password" type="password" class="form-control" placeholder="Enter your password" @bind="LoginPassword" required>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label text-muted" for="rememberMe">Keep me logged in</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-3">Sign In</button>
+
+                <div class="text-end mt-2">
+                    <a href="/forgot-password" class="text-primary text-decoration-none">Forgot Password?</a>
+                </div>
+            </form>
+
+            <!-- Error or Success Message -->
+            @if (!string.IsNullOrEmpty(Message))
+            {
+                <div class="alert mt-3 @((Message.Contains("successful")) ? "alert-success" : "alert-danger")" role="alert">
+                    @Message
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Container */
+    .login-container {
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0 15px;
+    }
+
+    /* Login Card */
+    .login-card {
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Left Section */
+    .login-left {
+        background: rgba(255, 255, 255, 0.1);
+        flex: 1;
+        padding: 50px;
+        text-align: center;
+    }
+
+        .login-left h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .login-left p {
+            font-size: 1.2rem;
+        }
+
+    .btn-outline-light {
+        border: 2px solid white;
+        border-radius: 50px;
+        color: white;
+        padding: 10px 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+        .btn-outline-light:hover {
+            background-color: white;
+            color: #0072ff;
+        }
+
+    /* Right Section */
+    .login-right {
+        background-color: white;
+        flex: 1;
+        padding: 50px;
+    }
+
+        .login-right h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+    .form-control {
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #0072ff;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056cc;
+        }
+
+    .alert {
+        border-radius: 10px;
+    }
+</style>
+
+@code {
+    private string LoginUsername = "";
+    private string LoginPassword = "";
+    private string Message = "";
+
+    private async Task OnLogin()
+    {
+        var users = UserService.LoadUsers();
+
+        var user = users.FirstOrDefault(u => u.Username == LoginUsername);
+
+        if (user == null)
+        {
+            Message = "Username not found.";
+            return;
+        }
+
+        if (!UserService.ValidatePassword(LoginPassword, user.Password))
+        {
+            Message = "Invalid password.";
+            return;
+        }
+
+        // Save userId to local storage
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "userId", user.Id.ToString());
+
+        // Navigate to the dashboard
+        NavigationManager.NavigateTo("/dashboard");
+    }
+}
