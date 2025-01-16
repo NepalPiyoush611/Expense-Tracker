@@ -44093,11 +44093,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\coursework.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\coursework.csproj",
       "projectName": "coursework",
-      "projectPath": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\coursework.csproj",
+      "projectPath": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\coursework.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\obj\\",
+      "outputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

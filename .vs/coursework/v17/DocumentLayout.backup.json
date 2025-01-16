@@ -1,90 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\",
+  "WorkspaceRootPath": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\transactiondetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\transactiondetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\transaction.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\transaction.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\services\\debtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\services\\debtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:services\\debtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\debtdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\debtdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\debt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\debt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\models\\transactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:models\\transactionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\layout\\firstlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\layout\\firstlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\weather.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\models\\debtmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\models\\debtmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:models\\debtmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\models\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:models\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\components\\pages\\transaction.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\transaction.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\layout\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\layout\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\components\\pages\\transactiondetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\transactiondetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\downloads\\coursework\\coursework\\components\\layout\\dashboardlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\layout\\dashboardlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\components\\pages\\debt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\debt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\components\\pages\\debtdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:components\\pages\\debtdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|c:\\users\\hp\\onedrive\\desktop\\app development\\coursework (2)\\coursework\\coursework\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D9E237-5268-47C4-BFD1-26FA5F6B8385}|coursework.csproj|solutionrelative:models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,260 +46,117 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DebtService.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Services\\DebtService.cs",
-              "RelativeDocumentMoniker": "Services\\DebtService.cs",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Services\\DebtService.cs",
-              "RelativeToolTip": "Services\\DebtService.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAwwFEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T14:10:47.615Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TransactionDetails.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\TransactionDetails.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\TransactionDetails.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\TransactionDetails.razor",
-              "RelativeToolTip": "Components\\Pages\\TransactionDetails.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABZAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.razor",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\Dashboard.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Dashboard.razor",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\Dashboard.razor",
+              "RelativeToolTip": "Components\\Pages\\Dashboard.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:44:03.012Z",
+              "WhenOpened": "2025-01-12T16:57:48.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DebtDetails.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\DebtDetails.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\DebtDetails.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\DebtDetails.razor",
-              "RelativeToolTip": "Components\\Pages\\DebtDetails.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T18:21:59.668Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TransactionService.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Services\\TransactionService.cs",
-              "RelativeDocumentMoniker": "Services\\TransactionService.cs",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Services\\TransactionService.cs",
-              "RelativeToolTip": "Services\\TransactionService.cs",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAwwLwAAAAAAAAAAAAAAA==",
+              "Title": "DebtModel.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Models\\DebtModel.cs",
+              "RelativeDocumentMoniker": "Models\\DebtModel.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Models\\DebtModel.cs",
+              "RelativeToolTip": "Models\\DebtModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T15:40:51.844Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Transaction.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Transaction.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Transaction.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Transaction.razor",
-              "RelativeToolTip": "Components\\Pages\\Transaction.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:42:04.244Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Dashboard.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Dashboard.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Dashboard.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Dashboard.razor",
-              "RelativeToolTip": "Components\\Pages\\Dashboard.razor",
-              "ViewState": "AgIAAPcAAAAAAAAAAAAwwA8BAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:33:09.177Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\NavMenu.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\NavMenu.razor",
-              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAABcAAAAAwczMzMwnwCIAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T17:26:27.647Z"
+              "WhenOpened": "2025-01-12T18:57:11.957Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Debt.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Debt.razor",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\Debt.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\Debt.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Debt.razor",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\Debt.razor",
               "RelativeToolTip": "Components\\Pages\\Debt.razor",
-              "ViewState": "AgIAAOAAAAAAAAAAAADwv/YAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAACgAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T19:21:00.767Z"
+              "WhenOpened": "2025-01-12T18:02:32.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TransactionModel.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Models\\TransactionModel.cs",
-              "RelativeDocumentMoniker": "Models\\TransactionModel.cs",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Models\\TransactionModel.cs",
-              "RelativeToolTip": "Models\\TransactionModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "TransactionDetails.razor",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\TransactionDetails.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\TransactionDetails.razor",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\TransactionDetails.razor",
+              "RelativeToolTip": "Components\\Pages\\TransactionDetails.razor",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAAwKwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-12T15:21:20.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Services\\TransactionService.cs",
+              "RelativeDocumentMoniker": "Services\\TransactionService.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Services\\TransactionService.cs",
+              "RelativeToolTip": "Services\\TransactionService.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAiwNcAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T15:33:59.604Z"
+              "WhenOpened": "2025-01-13T02:52:33.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DebtService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Services\\DebtService.cs",
+              "RelativeDocumentMoniker": "Services\\DebtService.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Services\\DebtService.cs",
+              "RelativeToolTip": "Services\\DebtService.cs",
+              "ViewState": "AgIAAGUAAADAzMzMzEwpwHIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T17:36:20.94Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Home.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Home.razor",
-              "RelativeToolTip": "Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAHMAAAAAAAAAAADwv4oAAAAAAAAAAAAAAA==",
+              "Title": "DebtDetails.razor",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\DebtDetails.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\DebtDetails.razor",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\DebtDetails.razor",
+              "RelativeToolTip": "Components\\Pages\\DebtDetails.razor",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAwwDAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:23:32.581Z"
+              "WhenOpened": "2025-01-12T19:00:07.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
+              "Title": "Transaction.razor",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\Transaction.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Transaction.razor",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Components\\Pages\\Transaction.razor",
+              "RelativeToolTip": "Components\\Pages\\Transaction.razor",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAmwIUAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-12T15:26:10.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Usermodel.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Models\\Usermodel.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Models\\Usermodel.cs",
               "RelativeDocumentMoniker": "Models\\Usermodel.cs",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Models\\Usermodel.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\Models\\Usermodel.cs",
               "RelativeToolTip": "Models\\Usermodel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAA6wAAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAA6wAQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T15:37:38.979Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Services\\UserService.cs",
-              "RelativeToolTip": "Services\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T15:41:28.575Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Register.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Register.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Register.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Register.razor",
-              "RelativeToolTip": "Components\\Pages\\Register.razor",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAwwLYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:42:20.034Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Login.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Login.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Login.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Login.razor",
-              "RelativeToolTip": "Components\\Pages\\Login.razor",
-              "ViewState": "AgIAAJMAAABQMzMzMzMrwKMAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:42:58.21Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-04T08:30:03.749Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "FirstLayout.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\FirstLayout.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\FirstLayout.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\FirstLayout.razor",
-              "RelativeToolTip": "Components\\Layout\\FirstLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:46:31.667Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Weather.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Weather.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\Weather.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Pages\\Weather.razor",
-              "RelativeToolTip": "Components\\Pages\\Weather.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:42:55.871Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "DebtModel.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Models\\DebtModel.cs",
-              "RelativeDocumentMoniker": "Models\\DebtModel.cs",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Models\\DebtModel.cs",
-              "RelativeToolTip": "Models\\DebtModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T17:54:08.279Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AppData.cs",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Models\\AppData.cs",
-              "RelativeDocumentMoniker": "Models\\AppData.cs",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Models\\AppData.cs",
-              "RelativeToolTip": "Models\\AppData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T15:39:14.388Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "NavMenu.razor.css",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\NavMenu.razor.css",
-              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor.css",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\NavMenu.razor.css",
-              "RelativeToolTip": "Components\\Layout\\NavMenu.razor.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-01-03T15:53:24.579Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "DashboardLayout.razor",
-              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\DashboardLayout.razor",
-              "RelativeDocumentMoniker": "Components\\Layout\\DashboardLayout.razor",
-              "ToolTip": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\Components\\Layout\\DashboardLayout.razor",
-              "RelativeToolTip": "Components\\Layout\\DashboardLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-03T15:46:38.022Z"
+              "WhenOpened": "2025-01-12T15:10:36.235Z"
             }
           ]
         }

@@ -1,27 +1,27 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\coursework.styles.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\coursework.styles.css",
       "PackagePath": "staticwebassets\\coursework.styles.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\hp\\Downloads\\coursework\\coursework\\wwwroot\\index.html",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\App Development\\coursework (2)\\coursework\\coursework\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {

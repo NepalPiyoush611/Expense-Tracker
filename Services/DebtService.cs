@@ -53,6 +53,7 @@ public class DebtService
         return LoadAppData().Debts;  // Return all debts in the data
     }
 
+
     public List<TransactionModel> FilterTransactions(int userId, string? type = null, List<string>? tags = null, DateTime? date = null)
     {
         var transactions = LoadAppData().Transactions
@@ -78,5 +79,56 @@ public class DebtService
 
         return transactions.ToList();
     }
+
+    // Calculate total debt for a specific user
+    public decimal CalculateTotalDebt(int userId)
+    {
+        var debts = GetUserDebts(userId);  
+        return debts.Sum(d => d.Amount);  // Sum the debt amounts
+    }
+
+
+    public DebtModel GetLowDebt(int userId)
+    {
+        var debts = GetUserDebts(userId);
+        return debts.OrderBy(d => d.RemainigAmount).FirstOrDefault();
+    }
+
+
+    public DebtModel GetHighDebt(int userId)
+    {
+        var debts = GetUserDebts(userId);
+        return debts.OrderByDescending(d => d.RemainigAmount).FirstOrDefault();
+    }
+
+
+
+
+    // Calculate the total cleared debt for a specific user
+    public decimal CalClearedDebt(int userId)
+    {
+        var debts = LoadAppData().Debts.Where(d => d.UserId == userId && d.Type == DebtType.debtOut).ToList();
+        return debts.Where(d => d.IsCleared).Sum(d => d.PaidAmount);  // Sum the cleared debt amount (paid towards debt)
+    }
+
+    // Calculate the total remaining debt for a specific user
+    public decimal CalRemainingDebt(int userId)
+    {
+        var debts = LoadAppData().Debts.Where(d => d.UserId == userId && d.Type == DebtType.debtOut).ToList();
+        return debts.Where(d => !d.IsCleared).Sum(d => d.Amount - d.PaidAmount);  // Sum the remaining amount (unpaid part of the debt)
+    }
+
+
+    public List<DebtModel> GetPendingDebts(int userId)
+    {
+        var debts = LoadAppData().Debts
+                                 .Where(d => d.UserId == userId && d.RemainigAmount > 0)
+                                 .OrderBy(d => d.Date)
+                                 .ToList();
+
+        return debts;
+    }
+
+   
 
 }

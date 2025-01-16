@@ -14,7 +14,15 @@ public class TransactionService
             return new AppData();  // Return an empty AppData if the file doesn't exist
 
         var json = File.ReadAllText(FilePath);
-        return JsonSerializer.Deserialize<AppData>(json) ?? new AppData(); // Deserialize into AppData
+        var appData = JsonSerializer.Deserialize<AppData>(json) ?? new AppData();
+
+        // Log the titles of transactions after loading
+        foreach (var transaction in appData.Transactions)
+        {
+            Console.WriteLine($"Loaded transaction with title: {transaction.Title}");
+        }
+
+        return appData;
     }
 
     // Save all data (users, debts, transactions) to the JSON file
@@ -95,6 +103,14 @@ public class TransactionService
         return appData.Transactions.Where(t => t.UserId == userId).ToList();
     }
 
+    // Calculate the total number of transactions for a user
+    public int GetTotalTransactions(int userId)
+    {
+        return LoadAppData().Transactions
+            .Where(t => t.UserId == userId)
+            .Count();
+    }
+
     public bool CheckSufficientBalance(int userId, decimal transactionAmount)
     {
         decimal totalIncome = CalculateTotalIncome(userId); // Sum of all credit (income) transactions
@@ -131,7 +147,7 @@ public class TransactionService
         return transactions.ToList();
     }
 
-    public TransactionModel GetHighestIncome(int userId)
+    public TransactionModel GetHighIncome(int userId)
     {
         return LoadAppData().Transactions
             .Where(t => t.UserId == userId && t.Type == TransactionModel.TransactionType.Credit)
@@ -140,7 +156,7 @@ public class TransactionService
     }
 
     // Get lowest income for a user
-    public TransactionModel GetLowestIncome(int userId)
+    public TransactionModel GetLowIncome(int userId)
     {
         return LoadAppData().Transactions
             .Where(t => t.UserId == userId && t.Type == TransactionModel.TransactionType.Credit)
@@ -149,7 +165,7 @@ public class TransactionService
     }
 
     // Get highest expense for a user
-    public TransactionModel GetHighestExpense(int userId)
+    public TransactionModel GetHighExpense(int userId)
     {
         return LoadAppData().Transactions
             .Where(t => t.UserId == userId && t.Type == TransactionModel.TransactionType.Debit)
@@ -158,7 +174,7 @@ public class TransactionService
     }
 
     // Get lowest expense for a user
-    public TransactionModel GetLowestExpense(int userId)
+    public TransactionModel GetLowExpense(int userId)
     {
         return LoadAppData().Transactions
             .Where(t => t.UserId == userId && t.Type == TransactionModel.TransactionType.Debit)
@@ -187,8 +203,23 @@ public class TransactionService
             .ToList();
     }
 
+    public List<TransactionModel> FilterTransactionsByDate(List<TransactionModel> transactions, DateTime startDate, DateTime endDate, bool ascending = true)
+    {
+        // Filter the transactions based on the date range
+        var filteredTransactions = transactions
+            .Where(t => t.Date >= startDate && t.Date <= endDate)
+            .ToList();
 
-
+        // Order the filtered transactions based on the specified order (ascending or descending)
+        if (ascending)
+        {
+            return filteredTransactions.OrderBy(t => t.Date).ToList();
+        }
+        else
+        {
+            return filteredTransactions.OrderByDescending(t => t.Date).ToList();
+        }
+    }
 
 
 

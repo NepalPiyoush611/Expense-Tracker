@@ -17,12 +17,19 @@
             <form @onsubmit="OnSaveTransaction">
                 <!-- Form Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Amount -->
+                    <!-- Amount -->                
+
                     <div>
                         <label class="block text-sm font-medium text-teal-600 mb-2">Amount</label>
                         <input type="number" class="form-input"
                                placeholder="Enter amount" @bind="newTransactionAmount" required min="0" step="any" />
                     </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-teal-600 mb-2">Title</label>
+                        <input type="text" class="form-input" placeholder="Transaction title" required />
+                    </div>
+
 
                     <!-- Transaction Type -->
                     <div>
@@ -92,6 +99,7 @@
 @code {
     private decimal newTransactionAmount = 0;
     private string newTransactionType = "";
+    private string newTransactionTitle = "";
     private string newTransactionTags = "";
     private string newTransactionSource = "";
     private string newTransactionNotes = "";
@@ -127,6 +135,7 @@
             {
                 Id = newTransactionId,
                 UserId = parsedUserId,
+                Title = newTransactionTitle, // Corrected assignment
                 Amount = newTransactionAmount,
                 Type = Enum.TryParse<TransactionModel.TransactionType>(newTransactionType, out var type) ? type : TransactionModel.TransactionType.Credit,
                 Tags = newTransactionTags.Split(',').Select(tag => tag.Trim()).ToList(),

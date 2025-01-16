@@ -38,6 +38,16 @@
                 </select>
             </div>
 
+            <!-- Debt Type Dropdown -->
+            <div class="mb-4">
+                <select class="form-select w-full p-4 rounded-lg border-2 border-teal-500 text-gray-900 bg-teal-100 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
+                        @bind="DebtType">
+                    <option disabled value="">Select Debt Type</option>
+                    <option value="debtIn">Debt In</option>
+                    <option value="debtOut">Debt Out</option>
+                </select>
+            </div>
+
             <!-- Due Date Input -->
             <div class="mb-4">
                 <input type="date" class="form-input w-full p-4 rounded-lg border-2 border-teal-500 text-gray-900 bg-teal-100 placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all"
@@ -55,7 +65,7 @@
                 <button type="submit" class="save-btn">
                     Save Debt
                 </button>
-                <button type="button" class="cancel-btn" @onclick="OnCancel">
+                <button type="button" class="cancel-btn bg-danger" @onclick="OnCancel">
                     Cancel
                 </button>
             </div>
@@ -76,6 +86,7 @@
     private string DebtSource = "";
     private string DebtNotes = "";
     private string Message = "";
+    private DebtType DebtType = DebtType.debtIn; // Default to 'debtIn'
 
     private List<DebtModel> Debts = new();
 
@@ -114,9 +125,9 @@
                 Amount = DebtAmount,
                 PaidAmount = PaidAmount,
                 Source = DebtSource,
-                IsCleared = false,  // Initially, the debt is not cleared
                 Notes = DebtNotes,
                 Date = DateTime.Now, // Current date as the creation date
+                Type = DebtType // Assign the selected DebtType
             };
 
         // Save the new debt using DebtService
@@ -210,7 +221,7 @@
 
         .save-btn:hover {
             background: linear-gradient(to right, #0d9488, #38b2ac); /* Hover effect with inverted gradient */
-            transform: scale(1.05); /* Hover scale effect */
+            transform: scale(1.05);
         }
 
     /* Cancel Button */
@@ -219,28 +230,13 @@
         padding: 14px;
         border-radius: 10px;
         font-weight: bold;
-        background: linear-gradient(to right, #e53e3e, #c53030); /* Gradient background for the Cancel button */
-        color: white; /* Text color */
+        background: #e5e5e5;
+        color: #333;
         transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
         .cancel-btn:hover {
-            background: linear-gradient(to right, #c53030, #e53e3e); /* Hover effect with inverted gradient */
-            transform: scale(1.05); /* Hover scale effect */
+            background: #d0d0d0;
+            transform: scale(1.05);
         }
-
-    /* Success/Error Message */
-    p {
-        font-size: 1.125rem;
-        margin-top: 1rem;
-        text-align: center;
-    }
-
-    .text-teal-400 {
-        color: #38b2ac;
-    }
-
-    .font-medium {
-        font-weight: 500;
-    }
 </style>
